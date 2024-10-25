@@ -19,7 +19,7 @@ export class HomePage {
       console.log(data);
       if(data["url"] == "add")
       {
-        this.players.push({ id: data["id"], nom: data["nom"], position: data["position"], image: data["image"] })
+        this.players.push({ id: data["id"], nom: data["nom"], position: data["position"], image: data["image"], statistiques: data["statistiques"] })
       }
       else if(data['url'] == "update")
       {
@@ -29,6 +29,7 @@ export class HomePage {
               element['nom'] = data['nom'];
               element['position'] = data['position']
               element['image'] = data['image']
+              element['statistiques'] = data['statistiques']
             }
           
         });

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="secondary">
-    <ion-title>Authentification</ion-title>
+    <ion-title style="text-align: center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Authentification</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,18 +8,18 @@
   <div class="bg-img">
     <ion-card style="padding: 5%; width: 80%" expand="full">
       
-      <ion-label> Login </ion-label>
-      <ion-input #login required name="login" type="text" label-placement="floating" fill="solid" ></ion-input>
+      <ion-label > Nom Utilisateur </ion-label>
+      <ion-input #login required name="login" type="text" label-placement="floating" fill="solid" style="margin-bottom: 1.5em;"></ion-input>
 
-      <ion-label> Password </ion-label>
-      <ion-input #pass required name="password" type="password" label-placement="floating" fill="solid" ></ion-input>
+      <ion-label> Mot de Passe </ion-label>
+      <ion-input #pass required name="password" type="password" label-placement="floating" fill="solid" style="margin-bottom: 1.5em;"></ion-input>
 
       <ion-button
             (click)="onSubmit(login.value, pass.value)"
             type="submit"
             expand="full"
             color="secondary"
-            >Sign in</ion-button
+            >Se Connecter</ion-button
       >
     </ion-card>
   </div>

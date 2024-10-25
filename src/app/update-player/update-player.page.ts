@@ -15,6 +15,8 @@ export class UpdatePlayerPage implements OnInit {
   position ;
   image;
   id;
+  stat = {"ballon_or": 5, "best_player": 3, "champion_europe": 1, "champion_league" :5}
+
   ngOnInit() {
     this.route.queryParams.subscribe(data => {
       console.log(data);
@@ -22,16 +24,19 @@ export class UpdatePlayerPage implements OnInit {
       this.nom = data["nom"];
       this.position = data["position"];
       this.image = data["image"];
+      this.stat = this.stat
     })
   }
 
   onUpdate(v)
   {
     console.log(v);
-    this.dataSer.updatePlayer(this.id, this.nom, this.position, this.selectedImage).subscribe({
+    this.dataSer.updatePlayer(this.id, this.nom, this.position, this.selectedImage, this.stat).subscribe({
       next: (response) => {
         console.log(response);
-        this.router.navigate(["/home"], {queryParams: { url: "update", id: this.id, nom: response["nom"], position: response["position"], image: response["image"]}})
+        console.log(this.stat);
+        
+        this.router.navigate(["/home"], {queryParams: { url: "update", id: this.id, nom: response["nom"], position: response["position"], image: response["image"], statistiques: this.stat}})
       },
       error: (err) => {
         console.log(err);

@@ -42,10 +42,10 @@ export class GetDataServiceService {
   }
 
 
-  updatePlayer(id, newName, newPosition, newImage)
+  updatePlayer(id, newName, newPosition, newImage, newstat)
   {
     return this.http.put(`https://ionicproject-5f3d6-default-rtdb.firebaseio.com/joueurs/${id}.json`, 
-      {nom: newName, position: newPosition, image: newImage});
+      {nom: newName, position: newPosition, image: newImage, statistiques: newstat});
   }
 
 }

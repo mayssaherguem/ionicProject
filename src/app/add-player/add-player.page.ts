@@ -48,7 +48,7 @@ export class AddPlayerPage implements OnInit {
         console.log('====================================');
         console.log(response)
         console.log(newPlayer)
-        this.router.navigate(["/home"], {queryParams: {url: "add", id: response["name"], nom: newPlayer.nom, position: newPlayer.position, image: newPlayer.image, }})
+        this.router.navigate(["/home"], {queryParams: {url: "add", id: response["name"], nom: newPlayer.nom, position: newPlayer.position, image: newPlayer.image, statistiques: newPlayer.statistiques}})
       },
       error: (err) => {
         console.log(err);

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="secondary">
-    <ion-title>updatePlayer</ion-title>
+    <ion-title style="font-size: large; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Modification d'un Joueur</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
@@ -11,13 +11,13 @@
   <div class="ion-margin">
     <form #f="ngForm">
       <ion-label> Nom </ion-label>
-      <ion-input [(ngModel)]="nom" required name="nom" type="text" label-placement="floating" fill="solid"></ion-input>
+      <ion-input [(ngModel)]="nom" required name="nom" type="text" label-placement="floating" fill="solid" style="margin-bottom: 1.5em;"></ion-input>
 
       <ion-label> Position </ion-label>
-      <ion-input [(ngModel)]="position" name="position" type="text" label-placement="floating" fill="solid"></ion-input>
+      <ion-input [(ngModel)]="position" name="position" type="text" label-placement="floating" fill="solid" style="margin-bottom: 1.5em;"></ion-input>
 
       <ion-label> Image </ion-label>
-      <ion-input [(ngModel)]="image" name="image" type="file" label-placement="floating" fill="solid" (change)="onFileSelected($event)"></ion-input>
+      <ion-input [(ngModel)]="image" name="image" type="file" label-placement="floating" fill="solid" (change)="onFileSelected($event)" style="margin-bottom: 1.5em;"></ion-input>
 
      
       <ion-button
