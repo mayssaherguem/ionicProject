@@ -84,9 +84,16 @@ export class HomePage {
     await alert.present();
   }
 
-  updatePlayer(id, nom, position, image)
+  updatePlayer(id, nom, position, image, statistiques)
   {
-    this.router.navigate(["/updatePlayer"], {queryParams: {id: id, nom: nom, position: position, image: image}})
+    this.router.navigate(["/updatePlayer"], {queryParams: {id: id, nom: nom, position: position, image: image, statistiques: statistiques}})
+  }
+
+  handleRefresh(event) {
+    setTimeout(() => {
+      // Any calls to load data go here
+      event.target.complete();
+    }, 2000);
   }
 
 }

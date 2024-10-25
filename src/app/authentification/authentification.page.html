@@ -12,7 +12,9 @@
       <ion-input #login required name="login" type="text" label-placement="floating" fill="solid" style="margin-bottom: 1.5em;"></ion-input>
 
       <ion-label> Mot de Passe </ion-label>
-      <ion-input #pass required name="password" type="password" label-placement="floating" fill="solid" style="margin-bottom: 1.5em;"></ion-input>
+      <ion-input #pass required name="password" type="password" label-placement="floating" fill="solid" style="margin-bottom: 1.5em;">
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
 
       <ion-button
             (click)="onSubmit(login.value, pass.value)"

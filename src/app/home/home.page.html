@@ -17,6 +17,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <div class="bg-img">
     
     @for (player of players; track player.id) {
@@ -34,9 +37,9 @@
           </ion-item>
 
           <ion-item-options>
-            <ion-item-option (click)="updatePlayer(player.id, player.nom, player.position, player.image)">Update </ion-item-option>
+            <ion-item-option (click)="updatePlayer(player.id, player.nom, player.position, player.image, player.statistiques)">Modifier </ion-item-option>
             <ion-item-option (click)="presentAlert(player.id)" color="danger"
-              >Delete</ion-item-option
+              >Supprimer</ion-item-option
             >
           </ion-item-options>
           
