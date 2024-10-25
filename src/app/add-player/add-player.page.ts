@@ -42,12 +42,13 @@ export class AddPlayerPage implements OnInit {
     console.log('====================================');
     let newPlayer = v;
     newPlayer["image"]=this.selectedImage;
+    newPlayer["statistiques"]={"ballon_or": 5, "best_player": 3, "champion_europe": 1, "champion_league" :5}
     this.dataSer.addPlayer(newPlayer).subscribe({
       next: (response) => {
         console.log('====================================');
         console.log(response)
         console.log(newPlayer)
-        this.router.navigate(["/home"], {queryParams: {url: "add", id: response["name"], nom: newPlayer.nom, position: newPlayer.position, image: newPlayer.image}})
+        this.router.navigate(["/home"], {queryParams: {url: "add", id: response["name"], nom: newPlayer.nom, position: newPlayer.position, image: newPlayer.image, }})
       },
       error: (err) => {
         console.log(err);

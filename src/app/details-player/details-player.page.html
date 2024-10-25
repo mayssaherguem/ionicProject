@@ -19,6 +19,17 @@
     </ion-grid>
 
     <h3 class="ion-text-center">
-      {{ selectedPlayer['nom'] }} qui a la position:  {{ selectedPlayer['position'] }} 
+      {{ selectedPlayer['nom'] }}  a la position:  {{ selectedPlayer['position'] }} 
     </h3>
+
+    <ion-list *ngIf="isDone">
+    
+      @for (stat of statistiques; track stat){
+        <ion-item>
+           <ion-img class="ion-margin" [src]="getImage(stat)"></ion-img>
+          <ion-badge slot="end">{{getStatNumber(selectedPlayer, stat)}}</ion-badge>
+          <ion-label >{{stat}}</ion-label> 
+        </ion-item>
+      }
+    </ion-list>
 </ion-content>

@@ -9,8 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailsPlayerPage implements OnInit {
   selectedPlayer={};
+  isDone=false;
   constructor(private dataSer: GetDataServiceService, private route: ActivatedRoute) { }
 
+  statistiques = ['ballon_or', 'best_player', 'champion_europe', 'champion_league']
   ngOnInit() {
 
     this.dataSer.getPlayerById( this.route.snapshot.paramMap.get('id') ).subscribe({
@@ -18,6 +20,7 @@ export class DetailsPlayerPage implements OnInit {
       {
         console.log(response);
         this.selectedPlayer = response
+        this.isDone = true
       },
       error: (err) =>
       {
@@ -25,6 +28,20 @@ export class DetailsPlayerPage implements OnInit {
         
       }
     });
+  }
+
+  getStatNumber(p, name)
+  {
+    console.log('====================================');
+    console.log( p );
+    console.log('====================================');
+    return p.statistiques[name];
+  }
+
+
+  getImage(name)
+  {
+    return "../../assets/"+name+".png";
   }
 
 }
