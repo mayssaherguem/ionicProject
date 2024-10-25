@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataServiceService } from '../services/get-data-service.service';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-player',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AddPlayerPage implements OnInit {
 
-  constructor(private dataSer : GetDataServiceService, private router: Router) { }
+  constructor(private dataSer : GetDataServiceService, private router: Router, private loadingCtrl: LoadingController) { }
 
   ngOnInit() {
   }
@@ -35,8 +36,12 @@ export class AddPlayerPage implements OnInit {
 
   }
 
-  onSubmit(v)
+  async onSubmit(v)
   {
+    const loading = await this.loadingCtrl.create({
+      message: 'Loading...',
+    });
+    await loading.present();
     console.log('====================================');
     console.log(this.selectedImage);
     console.log('====================================');
@@ -44,14 +49,16 @@ export class AddPlayerPage implements OnInit {
     newPlayer["image"]=this.selectedImage;
     newPlayer["statistiques"]={"ballon_or": 5, "best_player": 3, "champion_europe": 1, "champion_league" :5}
     this.dataSer.addPlayer(newPlayer).subscribe({
-      next: (response) => {
+      next: async (response) => {
         console.log('====================================');
         console.log(response)
         console.log(newPlayer)
+        await loading.dismiss();
         this.router.navigate(["/home"], {queryParams: {url: "add", id: response["name"], nom: newPlayer.nom, position: newPlayer.position, image: newPlayer.image, statistiques: newPlayer.statistiques}})
       },
-      error: (err) => {
+      error: async (err) => {
         console.log(err);
+        await loading.dismiss();
       }
     })
   }
