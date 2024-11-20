@@ -26,7 +26,7 @@
     
       @for (stat of statistiques; track stat){
         <ion-item>
-           <ion-img class="ion-margin" [src]="getImage(stat)"></ion-img>
+          <ion-img class="ion-margin" [src]="getImage(stat)"></ion-img>
           <ion-badge slot="end">{{getStatNumber(selectedPlayer, stat)}}</ion-badge>
           <ion-label >{{stat}}</ion-label> 
         </ion-item>
